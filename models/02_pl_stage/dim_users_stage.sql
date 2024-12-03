@@ -1,7 +1,7 @@
 {{
     config(
         materialized='table',
-        schema='clean_rittman'
+        schema='rittman_stage'
     )
 }}
 select  
@@ -18,4 +18,4 @@ select
     views,
     profile_image_url,
     website_url
-from rittman-analytics-trial-gj.stack_data.users
+from {{ref('users_clean')}}
