@@ -19,4 +19,4 @@ select
     views,
     profile_image_url,
     website_url
-from rittman-analytics-trial-gj.stack_data.users
+from {{source("stack_data","users")}}

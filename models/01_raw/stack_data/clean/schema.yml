@@ -1,0 +1,36 @@
+version: 2
+# comment out database and schema if not in EU processing region
+sources:
+  - name: stack_data
+    database: rittman-analytics-trial-gj
+    schema: stack_data
+    tables:
+      - name: users
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: display_name,
+          
+          - name: about_me,
+          
+          - name: age,
+          
+          - name: creation_date,
+          
+          - name: last_access_date,
+          
+          - name: location,
+          
+          - name: reputation,
+          
+          - name: up_votes,
+          
+          - name: down_votes,
+          
+          - name: views,
+          
+          - name: profile_image_url,
+          
+          - name: website_url
