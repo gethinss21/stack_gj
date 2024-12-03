@@ -1,8 +1,8 @@
 {{
     config(
         materialized='table',
-        schema='clean_rittman'
-        tags = "Rittman"
+        schema='clean_rittman',
+        tags = ["Rittman"]
     )
 }}
 select  

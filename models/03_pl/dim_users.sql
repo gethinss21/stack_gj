@@ -2,7 +2,7 @@
     config(
         materialized='table',
         schema='pl_rittman',
-        tags = "Rittman"
+        tags = ["Rittman"]
     )
 }}
 select  
