@@ -1,7 +1,8 @@
 {{
     config(
         materialized='table',
-        schema='pl_rittman'
+        schema='pl_rittman',
+        tags = "Rittman"
     )
 }}
 select  

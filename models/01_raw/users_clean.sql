@@ -2,6 +2,7 @@
     config(
         materialized='table',
         schema='clean_rittman'
+        tags = "Rittman"
     )
 }}
 select  
