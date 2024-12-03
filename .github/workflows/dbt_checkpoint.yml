@@ -1,0 +1,62 @@
+name: dbt-checkpoint
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - 'models/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  # do not change
+  DBT_GOOGLE_BIGQUERY_DATASET: dbt_pr_${{ github.event.pull_request.number }} 
+
+jobs:
+  dbt-checkpoint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Setup service account and profile files
+        run: |
+            echo '${{ secrets.STAGING_ENVIRONMENT_SERVICE_ACC }}' > service_account.json
+            echo '${{ secrets.PROFILES_YML }}' > profiles.yml
+        shell: bash
+
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dbt and pre-commit dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Get changed files
+        id: file_changes
+        uses: tj-actions/changed-files@v41
+        with:
+          files: models/**
+
+      - name: List all changed files
+        run: |
+          for file in $${{ steps.file_changes.outputs.all_changed_files}}; do
+            echo "$file was changed"
+          done
+
+      - name: Run dbt-checkpoint model checks
+        run: pre-commit run --files ${{ steps.file_changes.outputs.all_changed_files}}
+
+
+# https://github.com/dbt-checkpoint/dbt-checkpoint/issues/57
