@@ -11,6 +11,7 @@ select
     about_me,
     age,
     creation_date,
+    last_access_date,
     location,
     profile_image_url,
     website_url
