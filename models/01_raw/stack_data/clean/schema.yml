@@ -77,5 +77,53 @@ sources:
           - name: tags
 
           - name: view_count,
+      - name: posts_answers
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: titke,
+          
+          - name: body,
+          
+          - name: accepted_answer_id,
+          
+          - name: answer_count,
+          
+          - name: comment_count,
+          
+          - name: community_owned_date,
+          
+          - name: creation_date,
+          
+          - name: favorite_count,
+          
+          - name: last_activity_date,
+          
+          - name: last_edit_date,
+          
+          - name: last_editor_display_name,
+          
+          - name: last_editor_user_id
+
+          - name: owner_display_name,
+          
+          - name: owner_user_id
+
+          - name: parent_id,
+            tests:
+              - not_null
+              - unique
+          
+          - name: post_type_id
+
+          - name: score,
+          
+          - name: tags
+
+          - name: view_count,
+          
+
           
 
