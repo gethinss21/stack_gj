@@ -17,4 +17,4 @@ SELECT
   tags,
   view_count
 FROM
-  {{ref('posts_questions_clean')}} ;
+  {{ref('posts_questions_clean')}} 
