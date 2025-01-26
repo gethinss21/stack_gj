@@ -11,12 +11,8 @@ select
     about_me,
     age,
     creation_date,
-    last_access_date,
     location,
-    reputation,
-    up_votes,
-    down_votes,
-    views,
     profile_image_url,
+    last_access_date,
     website_url
 from {{ref('users_clean')}}

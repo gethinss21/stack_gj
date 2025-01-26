@@ -1,0 +1,129 @@
+version: 2
+# comment out database and schema if not in EU processing region
+sources:
+  - name: stack_data
+    database: rittman-analytics-trial-gj
+    schema: stack_data
+    tables:
+      - name: users
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: display_name,
+          
+          - name: about_me,
+          
+          - name: age,
+          
+          - name: creation_date,
+          
+          - name: last_access_date,
+          
+          - name: location,
+          
+          - name: reputation,
+          
+          - name: up_votes,
+          
+          - name: down_votes,
+          
+          - name: views,
+          
+          - name: profile_image_url,
+          
+          - name: website_url
+      - name: posts_questions
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: titke,
+          
+          - name: body,
+          
+          - name: accepted_answer_id,
+          
+          - name: answer_count,
+          
+          - name: comment_count,
+          
+          - name: community_owned_date,
+          
+          - name: creation_date,
+          
+          - name: favorite_count,
+          
+          - name: last_activity_date,
+          
+          - name: last_edit_date,
+          
+          - name: last_editor_display_name,
+          
+          - name: last_editor_user_id
+
+          - name: owner_display_name,
+          
+          - name: owner_user_id
+
+          - name: parent_id,
+          
+          - name: post_type_id
+
+          - name: score,
+          
+          - name: tags
+
+          - name: view_count,
+      - name: posts_answers
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+          - name: titke,
+          
+          - name: body,
+          
+          - name: accepted_answer_id,
+          
+          - name: answer_count,
+          
+          - name: comment_count,
+          
+          - name: community_owned_date,
+          
+          - name: creation_date,
+          
+          - name: favorite_count,
+          
+          - name: last_activity_date,
+          
+          - name: last_edit_date,
+          
+          - name: last_editor_display_name,
+          
+          - name: last_editor_user_id
+
+          - name: owner_display_name,
+          
+          - name: owner_user_id
+
+          - name: parent_id,
+            tests:
+              - not_null
+              - unique
+          
+          - name: post_type_id
+
+          - name: score,
+          
+          - name: tags
+
+          - name: view_count,
+          
+
+          
+

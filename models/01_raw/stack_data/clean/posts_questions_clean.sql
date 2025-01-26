@@ -26,4 +26,4 @@ post_type_id,
 score,
 tags,
 view_count
-from rittman-analytics-trial-gj.stack_data.posts_questions
+from {{source("stack_data","posts_questions")}}
