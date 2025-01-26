@@ -13,5 +13,6 @@ select
     creation_date,
     location,
     profile_image_url,
+    last_access_date,
     website_url
 from {{ref('users_clean')}}
